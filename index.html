@@ -86,6 +86,23 @@
 <footer>
 	<p>Made in NY <br>Copyright © Postcard Generator</p>
 </footer>
+<script>
+document.getElementById('states').addEventListener('change', function() {
+	var state = this.value;
+	var greeting = document.getElementById('greeting');
+	var stateHeading = document.getElementById('state-heading');
+	var postcard = document.getElementById('postcard');
 
+	if (state === 'empty-state') {
+		greeting.textContent = 'To Generate a Postcard';
+		stateHeading.textContent = 'Choose a state';
+		postcard.style.backgroundImage = 'url("img/empty-state.jpg")';
+	} else {
+		greeting.textContent = 'Greetings from';
+		stateHeading.textContent = this.options[this.selectedIndex].text;
+		postcard.style.backgroundImage = 'url("img/' + state + '@2x.jpg")';
+	}
+});
+</script>>
 </body>
 </html>
